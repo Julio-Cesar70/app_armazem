@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Color(0xFFFEEFDA),
         appBar: AppBar(
+          backgroundColor: const Color(0xFFFEEFDA),
           centerTitle: true,
           title: Image.asset(
             'assets/images/logo_armazem.png',
@@ -21,7 +22,6 @@ class MyApp extends StatelessWidget {
             width: 101,
             fit: BoxFit.contain,
           ),
-          backgroundColor: const Color(0xFFFEEFDA),
         ),
         body: Center(
           child: Container(
