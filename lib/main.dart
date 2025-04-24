@@ -12,23 +12,30 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Color(0xFFFEEFDA),
+        backgroundColor: Color(0xFFFEF9ED),
         appBar: AppBar(
-          backgroundColor: const Color(0xFFFEEFDA),
+          backgroundColor: const Color(0xFFEEE0BA),
+          iconTheme: IconThemeData(color: Color(0xFF202118)),
+          toolbarHeight: 80,
+          elevation: 0,
+          leading: Icon(Icons.menu),
           centerTitle: true,
-          title: Image.asset(
-            'assets/images/logo_armazem.png',
-            height: 100,
-            width: 101,
-            fit: BoxFit.contain,
+          title: Text(
+            'Armazem do Sítio',
+            style: TextStyle(
+              color: Color(0xFF202118),
+              fontSize: 30,
+            ),
           ),
         ),
-        body: Center(
-          child: Container(
-            height: 300,
-            width: 300,
-            color: Color(0xFFD9D9D9),
-          ),
+        body: Column(
+          children: [
+            // Container(
+            //   height: 200,
+            //   width: 698,
+            //   color: Colors.green,
+            // ),
+          ],
         ),
       ),
     );
