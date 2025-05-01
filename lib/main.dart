@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pages/home_page.dart'; // importe sua nova página
+import 'pages/home_page/home_page.dart'; // importe sua nova página
 
 void main() {
   runApp(const MyApp());

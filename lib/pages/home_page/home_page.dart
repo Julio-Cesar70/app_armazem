@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'app_bar.dart';
 
 void main() {
   runApp(const HomePage());
@@ -12,19 +13,9 @@ class HomePage extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        // appBar
+        appBar: buildCustomAppBar(),
         backgroundColor: Color(0xFFFEF9ED),
-        appBar: AppBar(
-          backgroundColor: const Color(0xFFEEE0BA),
-          iconTheme: IconThemeData(color: Color(0xFF202118)),
-          toolbarHeight: 60,
-          elevation: 0,
-          leading: IconButton(icon: Icon(Icons.menu), onPressed: () {}),
-          centerTitle: true,
-          title: Text(
-            'Armazem do Sítio',
-            style: TextStyle(color: Color(0xFF202118), fontSize: 30),
-          ),
-        ),
         body: SingleChildScrollView(
           child: Column(
             children: [
