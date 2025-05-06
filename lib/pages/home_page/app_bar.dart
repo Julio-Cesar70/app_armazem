@@ -6,7 +6,6 @@ AppBar buildCustomAppBar() {
     iconTheme: IconThemeData(color: Color(0xFF202118)),
     toolbarHeight: 60,
     elevation: 0,
-    leading: IconButton(icon: Icon(Icons.menu), onPressed: () {}),
     centerTitle: true,
     title: Text(
       'Armazem do Sítio',

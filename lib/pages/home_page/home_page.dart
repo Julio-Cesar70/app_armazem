@@ -1,5 +1,8 @@
+import 'package:app_armazem/pages/home_page/app_bar.dart';
+import 'package:app_armazem/pages/home_page/header_container.dart';
+import 'package:app_armazem/pages/home_page/product_item.dart';
 import 'package:flutter/material.dart';
-import 'app_bar.dart';
+
 
 void main() {
   runApp(const HomePage());
@@ -15,47 +18,19 @@ class HomePage extends StatelessWidget {
       home: Scaffold(
         // appBar
         appBar: buildCustomAppBar(),
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              UserAccountsDrawerHeader(accountName: Text('Usuario'), accountEmail: Text('Usuario@gmail.com'))
+            ],
+          ),
+        ),
         backgroundColor: Color(0xFFFEF9ED),
         body: SingleChildScrollView(
           child: Column(
             children: [
               // Container que fica no topo do aplicativo
-              Container(
-                decoration: BoxDecoration(
-                  color: Color(0xFFD9D9D9),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                width: double.infinity,
-                height: 200,
-                alignment: const Alignment(0, -0.6),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Armazem do Sítio',
-                      style: TextStyle(color: Color(0xFF8C9C6B), fontSize: 24),
-                    ),
-                    const SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: () {
-                        print('Botão clicado');
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFF8C9C6B),
-                        foregroundColor: Colors.white,
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 28,
-                          vertical: 5,
-                        ),
-                      ),
-                      child: Text(
-                        'Ver Produtos',
-                        style: TextStyle(fontSize: 18, fontFamily: 'Arial'),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              HeaderContainer(),
 
               const SizedBox(height: 30),
 
@@ -76,106 +51,29 @@ class HomePage extends StatelessWidget {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      margin: EdgeInsets.only(left: 10, right: 10),
-                      decoration: BoxDecoration(
-                        color: Color(0xFFD9D9D9),
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      width: 120,
-                      height: 220,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          ElevatedButton(
-                            onPressed: () {
-                              print('Botão 1 clicado');
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFF6A7F4E),
-                              foregroundColor: Colors.white,
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 10,
-                                vertical: 8,
-                              ),
-                              minimumSize: Size(60, 20),
-                            ),
-                            child: Text(
-                              'Pedir no WhatsApp',
-                              style: TextStyle(fontSize: 10),
-                            ),
-                          ),
-                        ],
-                      ),
+                    const SizedBox(width: 10),
+                    ProductItem(
+                      title: 'Pedir no WhatsApp',
+                      onPressed: () {
+                        print('Botão 1 clicado');
+                      },
                     ),
-                    SizedBox(width: 5),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Color(0xFFD9D9D9),
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      width: 120,
-                      height: 220,
-                      margin: EdgeInsets.only(right: 10),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          ElevatedButton(
-                            onPressed: () {
-                              print('Botão 2 clicado');
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFF6A7F4E),
-                              foregroundColor: Colors.white,
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 10,
-                                vertical: 8,
-                              ),
-                              minimumSize: Size(60, 20),
-                            ),
-                            child: Text(
-                              'Pedir no WhatsApp',
-                              style: TextStyle(fontSize: 10),
-                            ),
-                          ),
-                        ],
-                      ),
+                    const SizedBox(width: 10),
+                    ProductItem(
+                      title: 'Pedir no WhatsApp',
+                      onPressed: () {
+                        print('Botão 2 clicado');
+                      },
                     ),
-                    SizedBox(width: 5),
-                    Container(
-                      margin: EdgeInsets.only(right: 10),
-                      decoration: BoxDecoration(
-                        color: Color(0xFFD9D9D9),
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      width: 120,
-                      height: 220,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          ElevatedButton(
-                            onPressed: () {
-                              print('Botão 3 clicado');
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFF6A7F4E),
-                              foregroundColor: Colors.white,
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 10,
-                                vertical: 8,
-                              ),
-                              minimumSize: Size(60, 20),
-                            ),
-                            child: Text(
-                              'Pedir no WhatsApp',
-                              style: TextStyle(fontSize: 10),
-                            ),
-                          ),
-                        ],
-                      ),
+                    const SizedBox(width: 10),
+                    ProductItem(
+                      title: 'Pedir no WhatsApp',
+                      onPressed: () {
+                        print('Botão 3 clicado');
+                      },
                     ),
+                    const SizedBox(width: 10),
                   ],
                 ),
               ),
