@@ -18,7 +18,7 @@ class HeaderContainer extends StatelessWidget {
         children: [
           Text(
             'Armazem do Sítio',
-            style: TextStyle(color: Color(0xFF8C9C6B), fontSize: 24),
+            style: TextStyle(color: Color(0xFF8C9C6B), fontSize: 30),
           ),
           const SizedBox(height: 20),
           ElevatedButton(

@@ -18,13 +18,6 @@ class HomePage extends StatelessWidget {
       home: Scaffold(
         // appBar
         appBar: buildCustomAppBar(),
-        drawer: Drawer(
-          child: ListView(
-            children: [
-              UserAccountsDrawerHeader(accountName: Text('Usuario'), accountEmail: Text('Usuario@gmail.com'))
-            ],
-          ),
-        ),
         backgroundColor: Color(0xFFFEF9ED),
         body: SingleChildScrollView(
           child: Column(
@@ -39,7 +32,7 @@ class HomePage extends StatelessWidget {
                 width: double.infinity, // Ocupa toda largura
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: const Text(
-                  'Produtos',
+                  'Principais Produtos',
                   style: TextStyle(fontSize: 24, color: Color(0xFF202118)),
                   textAlign: TextAlign.start, // Alinha à esquerda
                 ),
@@ -52,28 +45,33 @@ class HomePage extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    const SizedBox(width: 10),
                     ProductItem(
-                      title: 'Pedir no WhatsApp',
-                      onPressed: () {
-                        print('Botão 1 clicado');
-                      },
+                      imagePath: 'assets/images/imagem_RoscaCaseira.png',
+                      productName: 'Rosca Caseira',
+                      productPrice: 'R\$ 5,00',
+                      onPressed1: () => print('Mais Detalhes 1'),
+                      onPressed2: () => print('Pedir do WhatsApp 1'),
                     ),
+
                     const SizedBox(width: 10),
+
                     ProductItem(
-                      title: 'Pedir no WhatsApp',
-                      onPressed: () {
-                        print('Botão 2 clicado');
-                      },
+                      imagePath: 'assets/images/imagem_PaoCaseiro.png',
+                      productName: 'Pão Caseiro',
+                      productPrice: 'R\$ 5,00',
+                      onPressed1: () => print('Mais Detalhes 1'),
+                      onPressed2: () => print('Pedir do WhatsApp 1'),
                     ),
-                    const SizedBox(width: 10),
+
+                    const SizedBox(width: 10,),
+
                     ProductItem(
-                      title: 'Pedir no WhatsApp',
-                      onPressed: () {
-                        print('Botão 3 clicado');
-                      },
+                      imagePath: 'assets/images/imagem_Alface.jpg',
+                      productName: 'Alface',
+                      productPrice: 'R\$ 5,00',
+                      onPressed1: () => print('Mais Detalhes 1'),
+                      onPressed2: () => print('Pedir do WhatsApp 1'),
                     ),
-                    const SizedBox(width: 10),
                   ],
                 ),
               ),

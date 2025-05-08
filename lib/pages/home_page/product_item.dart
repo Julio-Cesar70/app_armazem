@@ -1,41 +1,102 @@
 import 'package:flutter/material.dart';
 
-
 class ProductItem extends StatelessWidget {
-  final String title;
-  final VoidCallback onPressed;
+  final String imagePath;
+  final String productName;
+  final String productPrice;
+  final VoidCallback onPressed1;
+  final VoidCallback onPressed2;
 
   const ProductItem({
+    required this.imagePath,
+    required this.productName,
+    required this.productPrice,
+    required this.onPressed1,
+    required this.onPressed2,
     super.key,
-    required this.title,
-    required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: Color(0xFFD9D9D9),
+        color: Colors.grey[300],
         borderRadius: BorderRadius.circular(16),
       ),
-      width: 120,
-      height: 220,
+      width: 150,
+      height: 300,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          ElevatedButton(
-            onPressed: onPressed,
-            style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFF8C9C6B),
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-              minimumSize: const Size(60, 20),
-              foregroundColor: Colors.white,
+          // Imagem arredondada do Produto
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12), // Borda arredondada
+              child: SizedBox(
+                width: 120,
+                height: 120,
+                child: Image.asset(
+                  imagePath,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
-            child: Text(
-              title,
-              style: const TextStyle(fontSize: 10),
-              textAlign: TextAlign.center,
+          ),
+          // Nome do produto (por exemplo, "Pão Caseiro")
+          Text(
+            productName,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          // Preço do produto com cor ajustada para o tema do app
+          Text(
+            productPrice,
+            style: const TextStyle(
+              fontSize: 18,
+              color: Color(0xFF4A5D23), // Verde escuro, combinando com o tema
+              fontWeight: FontWeight.w600,
             ),
+          ),
+          const SizedBox(height: 8), // Espaçamento entre o preço e os botões
+          // Preenche o espaço para empurrar os botões para baixo
+          const Spacer(),
+          // Botões (colados e na parte inferior)
+          Column(
+            children: [
+              SizedBox(
+                width: 120,
+                child: ElevatedButton(
+                  onPressed: onPressed1,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF8C9C6B),
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                    minimumSize: const Size(120, 35),
+                  ),
+                  child: const Text('Mais Detalhes', style: TextStyle(fontSize: 12)),
+                ),
+              ),
+              SizedBox(
+                width: 120,
+                child: ElevatedButton(
+                  onPressed: onPressed2,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF8C9C6B),
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    minimumSize: const Size(120, 35),
+                  ),
+                  child: const FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      'Adicionar ao Carrinho',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),

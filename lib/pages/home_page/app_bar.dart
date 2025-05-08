@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 AppBar buildCustomAppBar() {
   return AppBar(
     backgroundColor: const Color(0xFFEEE0BA),
-    iconTheme: IconThemeData(color: Color(0xFF202118)),
-    toolbarHeight: 60,
+    iconTheme: const IconThemeData(color: Color(0xFF202118)),
+    toolbarHeight: 80, // Aumenta a altura da AppBar
     elevation: 0,
     centerTitle: true,
     title: Text(
