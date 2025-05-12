@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
-import 'pages/home_page/home.dart'; // importe sua nova página
+import 'package:provider/provider.dart';
+import 'providers/cart_provider.dart';
+import 'pages/home_page/home.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CartProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -10,9 +19,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(), 
+      home: HomePage(),
     );
   }
 }
