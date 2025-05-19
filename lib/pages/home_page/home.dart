@@ -63,9 +63,11 @@ class _HomePageState extends State<HomePage> {
                             productPrice: 'R\$ 5,00',
                           );
                           Provider.of<CartProvider>(context, listen: false).addProduct(product);
+                          ScaffoldMessenger.of(context).hideCurrentSnackBar();
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               content: Text('Produto adicionado ao carrinho!'),
+                              duration: Duration(seconds: 1),
                             ),
                           );
                         },
@@ -83,9 +85,11 @@ class _HomePageState extends State<HomePage> {
                             productPrice: 'R\$ 5,00',
                           );
                           Provider.of<CartProvider>(context, listen: false).addProduct(product);
+                          ScaffoldMessenger.of(context).hideCurrentSnackBar();
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               content: Text('Produto adicionado ao carrinho!'),
+                              duration: Duration(seconds: 1),
                             ),
                           );
                         },
@@ -103,9 +107,11 @@ class _HomePageState extends State<HomePage> {
                             productPrice: 'R\$ 2,50',
                           );
                           Provider.of<CartProvider>(context, listen: false).addProduct(product);
+                          ScaffoldMessenger.of(context).hideCurrentSnackBar();
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               content: Text('Produto adicionado ao carrinho!'),
+                              duration: Duration(seconds: 1),
                             ),
                           );
                         },
