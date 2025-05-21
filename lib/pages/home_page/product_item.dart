@@ -37,9 +37,25 @@ class ProductItem extends StatelessWidget {
               child: SizedBox(
                 width: 120,
                 height: 120,
-                child: Image.asset(
+                child: Image.network(
                   imagePath,
                   fit: BoxFit.cover,
+                  loadingBuilder: (context, child, loadingProgress) {
+                    if (loadingProgress == null) return child;
+                    return Center(
+                      child: CircularProgressIndicator(
+                        value: loadingProgress.expectedTotalBytes != null
+                        ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
+                        : null,
+                      ),
+                    );
+                  },
+                  errorBuilder: (context, error, stackTrace) { 
+                    return Container(
+                      color: Colors.grey[200],
+                      child: const Icon(Icons.broken_image, size: 50),
+                    );
+                  },
                 ),
               ),
             ),

@@ -32,14 +32,14 @@ class CartPage extends StatelessWidget {
                   horizontal: 16,
                   vertical: 12,
                 ),
-                leading: Image.asset(
-                  product.imagePath,
+                leading: Image.network(
+                  product.image,
                   width: 80,
                   height: 80,
                   fit: BoxFit.cover,
                 ),
                 title: Text(
-                  product.productName,
+                  product.title,
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -47,7 +47,7 @@ class CartPage extends StatelessWidget {
                   ),
                 ),
                 subtitle: Text(
-                  product.productPrice,
+                  product.price,
                   style: const TextStyle(
                     fontSize: 16,
                     color: Color(0xFF8C9C6B),
@@ -67,7 +67,7 @@ class CartPage extends StatelessWidget {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text(
-                                '${product.productName} removido do carrinho!',
+                                '${product.title} removido do carrinho!',
                               ),
                               duration: const Duration(seconds: 1),
                             ),
