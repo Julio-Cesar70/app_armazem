@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'providers/cart_provider.dart';
+import 'providers/card_provider.dart';
 import 'pages/home_page/home.dart';
+import 'pages/card_page/card.dart';
+import 'pages/card_page/payment_page.dart';
 
 void main() {
   runApp(
@@ -21,7 +23,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: const HomePage(),
+      routes: {
+        '/card': (context) => const CardPage(),
+        '/payment': (context) => const PaymentPage(),
+      },
     );
   }
 }

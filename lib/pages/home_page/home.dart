@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../providers/cart_provider.dart';
-import '../../models/product.dart';
+import '../../providers/card_provider.dart';
+import '../../models/product_card.dart';
 import 'app_bar.dart';
 import 'header_container.dart';
 import 'product_item.dart';
-import '../cart_page/cart.dart';
+import '../card_page/card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           // Página do Carrinho
-          const CartPage(),
+          const CardPage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
