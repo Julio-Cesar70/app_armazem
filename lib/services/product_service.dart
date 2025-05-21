@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 class ProductService {
   static Future<List<Product>> fetchProducts() async { 
-    final response = await http.get(Uri.parse("http://192.168.0.102:8080/product"))
+    final response = await http.get(Uri.parse("http://40.160.16.244:8779/product"))
     .timeout(const Duration(seconds: 5));
 
     if (response.statusCode == 200) { 
