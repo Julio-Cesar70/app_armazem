@@ -55,7 +55,8 @@ class _HomePageState extends State<HomePage> {
                         imagePath: 'assets/images/imagem_RoscaCaseira.png',
                         productName: 'Rosca Caseira',
                         productPrice: 'R\$ 5,00',
-                        onPressed1: () => print('Mais Detalhes 1'),
+                        description:
+                            'Rosca caseira feita com farinha de trigo, ovos e leite. Contém glúten. Ideal para café da manhã ou lanche.',
                         onPressed2: () {
                           final product = Product(
                             imagePath: 'assets/images/imagem_RoscaCaseira.png',
@@ -63,7 +64,6 @@ class _HomePageState extends State<HomePage> {
                             productPrice: 'R\$ 5,00',
                           );
                           Provider.of<CartProvider>(context, listen: false).addProduct(product);
-                          ScaffoldMessenger.of(context).hideCurrentSnackBar();
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               content: Text('Produto adicionado ao carrinho!'),
@@ -77,7 +77,8 @@ class _HomePageState extends State<HomePage> {
                         imagePath: 'assets/images/imagem_PaoCaseiro.png',
                         productName: 'Pão Caseiro',
                         productPrice: 'R\$ 5,00',
-                        onPressed1: () => print('Mais Detalhes 2'),
+                        description:
+                            'Pão caseiro assado no forno à lenha. Contém glúten e lactose. Textura macia e sabor tradicional.',
                         onPressed2: () {
                           final product = Product(
                             imagePath: 'assets/images/imagem_PaoCaseiro.png',
@@ -85,7 +86,6 @@ class _HomePageState extends State<HomePage> {
                             productPrice: 'R\$ 5,00',
                           );
                           Provider.of<CartProvider>(context, listen: false).addProduct(product);
-                          ScaffoldMessenger.of(context).hideCurrentSnackBar();
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               content: Text('Produto adicionado ao carrinho!'),
@@ -99,7 +99,8 @@ class _HomePageState extends State<HomePage> {
                         imagePath: 'assets/images/imagem_Alface.jpg',
                         productName: 'Alface',
                         productPrice: 'R\$ 2,50',
-                        onPressed1: () => print('Mais Detalhes 3'),
+                        description:
+                            'Alface crespa orgânica, colhida no mesmo dia da entrega. Livre de agrotóxicos e conservantes.',
                         onPressed2: () {
                           final product = Product(
                             imagePath: 'assets/images/imagem_Alface.jpg',
@@ -107,7 +108,6 @@ class _HomePageState extends State<HomePage> {
                             productPrice: 'R\$ 2,50',
                           );
                           Provider.of<CartProvider>(context, listen: false).addProduct(product);
-                          ScaffoldMessenger.of(context).hideCurrentSnackBar();
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               content: Text('Produto adicionado ao carrinho!'),
