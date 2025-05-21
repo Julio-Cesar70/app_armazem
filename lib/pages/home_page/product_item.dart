@@ -3,18 +3,52 @@ import 'package:flutter/material.dart';
 class ProductItem extends StatelessWidget {
   final String imagePath;
   final String productName;
+  final String description;
   final String productPrice;
-  final VoidCallback onPressed1;
+
   final VoidCallback onPressed2;
 
   const ProductItem({
     required this.imagePath,
     required this.productName,
+    required this.description,
     required this.productPrice,
-    required this.onPressed1,
     required this.onPressed2,
     super.key,
   });
+
+void _showProductDetails(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) => AlertDialog(
+        title: Text(productName),
+        content: SingleChildScrollView(
+          child: Column(
+            children: [
+              Image.network(imagePath, height: 150),
+              const SizedBox(height: 10),
+              Text(description, style: const TextStyle(fontSize: 16)),
+              const SizedBox(height: 10),
+              Text(
+                productPrice,
+                style: const TextStyle(
+                  fontSize: 18,
+                  color: Color(0xFF4A5D23),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Fechar'),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +117,7 @@ class ProductItem extends StatelessWidget {
               SizedBox(
                 width: 120,
                 child: ElevatedButton(
-                  onPressed: onPressed1,
+                  onPressed: () => _showProductDetails(context),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF8C9C6B),
                     foregroundColor: Colors.white,

@@ -8,6 +8,7 @@ class ProductService {
 
     if (response.statusCode == 200) { 
       List<dynamic> jsonResponse = json.decode(response.body);
+      print(json.decode(response.body));
       return jsonResponse.map((product) => Product.fromJSON(product)).toList();
     } else { 
       throw Exception("Failed to load products");

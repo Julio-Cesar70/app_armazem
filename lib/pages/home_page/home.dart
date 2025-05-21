@@ -69,10 +69,6 @@ class _HomePageState extends State<HomePage> {
                                     imagePath: product.image,
                                     productName: product.title,
                                     productPrice: product.price,
-                                    onPressed1:
-                                        () => print(
-                                          "Mais detalhes ${product.title}",
-                                        ),
                                     onPressed2: () {
                                       Provider.of<CartProvider>(
                                         context,
@@ -92,6 +88,7 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                       );
                                     },
+                                    description: product.description,
                                   ),
                                 );
                               }).toList(),
