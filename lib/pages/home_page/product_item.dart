@@ -17,36 +17,37 @@ class ProductItem extends StatelessWidget {
     super.key,
   });
 
-void _showProductDetails(BuildContext context) {
+  void _showProductDetails(BuildContext context) {
     showDialog(
       context: context,
-      builder: (_) => AlertDialog(
-        title: Text(productName),
-        content: SingleChildScrollView(
-          child: Column(
-            children: [
-              Image.network(imagePath, height: 150),
-              const SizedBox(height: 10),
-              Text(description, style: const TextStyle(fontSize: 16)),
-              const SizedBox(height: 10),
-              Text(
-                productPrice,
-                style: const TextStyle(
-                  fontSize: 18,
-                  color: Color(0xFF4A5D23),
-                  fontWeight: FontWeight.bold,
-                ),
+      builder:
+          (_) => AlertDialog(
+            title: Text(productName),
+            content: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Image.network(imagePath, height: 150),
+                  const SizedBox(height: 10),
+                  Text(description, style: const TextStyle(fontSize: 16)),
+                  const SizedBox(height: 10),
+                  Text(
+                    productPrice,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      color: Color(0xFF4A5D23),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Fechar'),
               ),
             ],
           ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Fechar'),
-          ),
-        ],
-      ),
     );
   }
 
@@ -78,13 +79,15 @@ void _showProductDetails(BuildContext context) {
                     if (loadingProgress == null) return child;
                     return Center(
                       child: CircularProgressIndicator(
-                        value: loadingProgress.expectedTotalBytes != null
-                        ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
-                        : null,
+                        value:
+                            loadingProgress.expectedTotalBytes != null
+                                ? loadingProgress.cumulativeBytesLoaded /
+                                    loadingProgress.expectedTotalBytes!
+                                : null,
                       ),
                     );
                   },
-                  errorBuilder: (context, error, stackTrace) { 
+                  errorBuilder: (context, error, stackTrace) {
                     return Container(
                       color: Colors.grey[200],
                       child: const Icon(Icons.broken_image, size: 50),
@@ -101,7 +104,7 @@ void _showProductDetails(BuildContext context) {
           ),
           // Preço do produto com cor ajustada para o tema do app
           Text(
-            productPrice,
+            '$productPrice R\$',
             style: const TextStyle(
               fontSize: 18,
               color: Color(0xFF4A5D23), // Verde escuro, combinando com o tema
@@ -121,10 +124,16 @@ void _showProductDetails(BuildContext context) {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF8C9C6B),
                     foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 6,
+                    ),
                     minimumSize: const Size(120, 35),
                   ),
-                  child: const Text('Mais Detalhes', style: TextStyle(fontSize: 12)),
+                  child: const Text(
+                    'Mais Detalhes',
+                    style: TextStyle(fontSize: 12),
+                  ),
                 ),
               ),
               SizedBox(
@@ -134,7 +143,10 @@ void _showProductDetails(BuildContext context) {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF8C9C6B),
                     foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 4,
+                    ),
                     minimumSize: const Size(120, 35),
                   ),
                   child: const FittedBox(
