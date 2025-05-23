@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../providers/cart_provider.dart';
+import 'pagamento_page.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -32,10 +33,7 @@ class CartPage extends StatelessWidget {
                     const SizedBox(height: 16),
                     Text(
                       'Seu carrinho está vazio',
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.grey[600],
-                      ),
+                      style: TextStyle(fontSize: 20, color: Colors.grey[600]),
                     ),
                   ],
                 ),
@@ -130,13 +128,15 @@ class CartPage extends StatelessWidget {
                         'Subtotal:',
                         style: TextStyle(
                           fontSize: 16,
-                          fontWeight: FontWeight.w500),
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                       Text(
                         'R\$ ${cartProvider.totalPrice.toStringAsFixed(2)}',
                         style: const TextStyle(
                           fontSize: 16,
-                          fontWeight: FontWeight.bold),
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),
@@ -148,13 +148,15 @@ class CartPage extends StatelessWidget {
                         'Taxa de Entrega (10%):',
                         style: TextStyle(
                           fontSize: 16,
-                          fontWeight: FontWeight.w500),
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                       Text(
                         'R\$ ${cartProvider.deliveryFee.toStringAsFixed(2)}',
                         style: const TextStyle(
                           fontSize: 16,
-                          fontWeight: FontWeight.bold),
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),
@@ -193,6 +195,16 @@ class CartPage extends StatelessWidget {
                       ),
                       onPressed: () {
                         // Navegar para a página de pagamento
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder:
+                                (context) => PagamentoPage(
+                                  total: cartProvider.totalWithFee,
+                                  cartItems: cartItems,
+                                ),
+                          ),
+                        );
                       },
                       child: const Text(
                         'Continuar para o pagamento',

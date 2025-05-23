@@ -16,6 +16,11 @@ class CartProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  void clearCart() {
+  _products.clear();
+  notifyListeners();
+  }
+
   int get itemCount => _products.length;
 
   double get totalPrice {
